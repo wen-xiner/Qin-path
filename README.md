@@ -4,6 +4,10 @@
 
 挑战杯参赛作品。第一版面向《数据结构》单门课程，28 个知识点、224 道题。
 
+> **换机器 / 交接给别人接手**：先看 **[`BUDDYREADME.md`](BUDDYREADME.md)**，
+> 里面写了接手时第一步要做什么（跑 `python scripts/check_env.py` 确认环境），
+> 以及迁移后必须重跑哪些实验、哪些设计约定不能碰。
+
 ---
 
 ## 一、这个项目在做什么
@@ -115,8 +119,18 @@ npm run dev
 ### 6. 跑测试
 
 ```bash
-python -m pytest backend/tests -q      # 后端接口闭环
+python -m pytest ml/tests backend/tests -q      # 33 条：模型/适配器回归 + 后端接口闭环
 ```
+
+### 7. 环境自检（换机器后第一步）
+
+```bash
+python scripts/check_env.py             # 27 项只读检查，只用标准库，依赖没装齐也能跑
+python scripts/check_env.py --quiet     # 只在有问题时输出，可直接用于脚本判定
+```
+
+退出码 `0` 表示无缺失项，`1` 表示有缺失项。换机器后请先跑它，再看
+[`BUDDYREADME.md`](BUDDYREADME.md) 的结论对照表。
 
 ---
 
@@ -157,7 +171,11 @@ Qin-path/
 │       ├── views/                   LoginView / StudentView / TeacherView
 │       └── components/              KnowledgeDAG / LearningCurve / ClassHeatmap / ExperimentTable
 ├── data/                            raw（原始数据集）+ processed（构建产物）
-└── ml/artifacts/                    实验指标与模型产物
+├── scripts/                         运维脚本
+│   ├── check_env.py                 环境自检（27 项，只用标准库，换机器后第一步跑）
+│   └── shot.py                      无头浏览器截图验收（学生端 + 教师端）
+├── ml/artifacts/                    实验指标与模型产物
+└── BUDDYREADME.md                   交接文档：新机器接手时先读这份
 ```
 
 ---

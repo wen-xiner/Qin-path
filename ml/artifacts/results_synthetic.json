@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "device": "cpu",
+    "profile": "cpu",
+    "data_source": "synthetic",
+    "n_kc": 28,
+    "train": {
+      "data_source": "synthetic",
+      "n_students": 640,
+      "n_kc": 28,
+      "n_questions": 224,
+      "n_interactions": 21093,
+      "avg_seq_len": 32.96,
+      "accuracy": 0.4254
+    },
+    "valid": {
+      "data_source": "synthetic",
+      "n_students": 80,
+      "n_kc": 28,
+      "n_questions": 224,
+      "n_interactions": 2338,
+      "avg_seq_len": 29.23,
+      "accuracy": 0.4453
+    },
+    "test": {
+      "data_source": "synthetic",
+      "n_students": 80,
+      "n_kc": 28,
+      "n_questions": 224,
+      "n_interactions": 2591,
+      "avg_seq_len": 32.39,
+      "accuracy": 0.4438
+    },
+    "seed": 42,
+    "bootstrap": false,
+    "note": "合成数据仅用于验证实现与演示"
+  },
+  "results": {
+    "Mean": {
+      "auc_all": 0.5,
+      "acc_all": 0.5561559243535315,
+      "rmse_all": 0.49717840778147315,
+      "nll_all": 0.6875196301862561,
+      "n_all": 2591,
+      "auc_skip1st": 0.5,
+      "acc_skip1st": 0.5551573078454799,
+      "rmse_skip1st": 0.4973282065621562,
+      "nll_skip1st": 0.6878198222754736,
+      "n_skip1st": 2511,
+      "train_seconds": 0.0,
+      "n_params": null,
+      "per_student_auc_mean": 0.5,
+      "per_student_auc_std": 0.0
+    },
+    "KC-Mean": {
+      "auc_all": 0.5217946474368644,
+      "acc_all": 0.5685063681976071,
+      "rmse_all": 0.49611882083908443,
+      "nll_all": 0.6854395001373838,
+      "n_all": 2591,
+      "auc_skip1st": 0.5235845784915273,
+      "acc_skip1st": 0.5659099960175229,
+      "rmse_skip1st": 0.49626031391539444,
+      "nll_skip1st": 0.685719395453087,
+      "n_skip1st": 2511,
+      "train_seconds": 0.0,
+      "n_params": null,
+      "per_student_auc_mean": 0.5153,
+      "per_student_auc_std": 0.0956
+    },
+    "BKT": {
+      "auc_all": 0.5618091301330598,
+      "acc_all": 0.5769972983404091,
+      "rmse_all": 0.49325682129859727,
+      "nll_all": 0.6797305894642456,
+      "n_all": 2591,
+      "auc_skip1st": 0.5642258868741723,
+      "acc_skip1st": 0.5766626841895659,
+      "rmse_skip1st": 0.4931574904897765,
+      "nll_skip1st": 0.6795171077911969,
+      "n_skip1st": 2511,
+      "train_seconds": 71.46,
+      "n_params": null,
+      "per_student_auc_mean": 0.5277,
+      "per_student_auc_std": 0.1169
+    },
+    "DKT": {
+      "auc_all": 0.5435693811664605,
+      "acc_all": 0.563103049015824,
+      "rmse_all": 0.49620766854438453,
+      "nll_all": 0.6856856479189787,
+      "n_all": 2591,
+      "auc_skip1st": 0.544950606833995,
+      "acc_skip1st": 0.5603345280764636,
+      "rmse_skip1st": 0.4962657430388894,
+      "nll_skip1st": 0.6858052599148932,
+      "n_skip1st": 2511,
+      "train_seconds": 12.47,
+      "n_params": 25009,
+      "per_student_auc_mean": 0.5168,
+      "per_student_auc_std": 0.1143
+    },
+    "SAKT": {
+      "auc_all": 0.5390145732130465,
+      "acc_all": 0.5634890003859514,
+      "rmse_all": 0.4991296946732393,
+      "nll_all": 0.6922831629895994,
+      "n_all": 2591,
+      "auc_skip1st": 0.5395951314560805,
+      "acc_skip1st": 0.5627240143369175,
+      "rmse_skip1st": 0.4993620169296547,
+      "nll_skip1st": 0.6927753248000103,
+      "n_skip1st": 2511,
+      "train_seconds": 18.64,
+      "n_params": 41953,
+      "per_student_auc_mean": 0.5132,
+      "per_student_auc_std": 0.1064
+    }
+  },
+  "models": {
+    "Mean": {
+      "kind": "baseline",
+      "desc": "全局均值预测（最弱基线）"
+    },
+    "KC-Mean": {
+      "kind": "baseline",
+      "desc": "逐知识点频率预测（严格下限）"
+    },
+    "BKT": {
+      "kind": "classic",
+      "desc": "贝叶斯知识追踪，四参数、可解释"
+    },
+    "DKT": {
+      "kind": "deep",
+      "desc": "深度知识追踪，LSTM 序列建模（主力）"
+    },
+    "SAKT": {
+      "kind": "deep",
+      "desc": "自注意力知识追踪（对照）"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: zhitu-backend
+    ports:
+      - "8000:8000"
+    environment:
+      ZT_PROFILE: cpu
+      ZT_SECRET_KEY: change-me-in-production
+      ZT_DATABASE_URL: sqlite:////data/zhitu.db
+    volumes:
+      - zhitu-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: zhitu-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  zhitu-data:

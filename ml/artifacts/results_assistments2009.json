@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "device": "cpu",
+    "profile": "cpu",
+    "data_source": "assistments2009",
+    "n_kc": 116,
+    "train": {
+      "data_source": "assistments2009",
+      "n_students": 2955,
+      "n_kc": 116,
+      "n_questions": 17712,
+      "n_interactions": 126863,
+      "avg_seq_len": 42.93,
+      "accuracy": 0.6283
+    },
+    "valid": {
+      "data_source": "assistments2009",
+      "n_students": 369,
+      "n_kc": 116,
+      "n_questions": 17712,
+      "n_interactions": 17620,
+      "avg_seq_len": 47.75,
+      "accuracy": 0.6062
+    },
+    "test": {
+      "data_source": "assistments2009",
+      "n_students": 370,
+      "n_kc": 116,
+      "n_questions": 17712,
+      "n_interactions": 16920,
+      "avg_seq_len": 45.73,
+      "accuracy": 0.6291
+    },
+    "seed": 42,
+    "bootstrap": true,
+    "note": "公开数据集",
+    "dataset_meta": {
+      "format": "assistments_csv",
+      "path": "data\\raw\\skill_builder_data_corrected.csv",
+      "encoding": "cp1252",
+      "raw_rows": 401756,
+      "dropped_rows": {
+        "kc_empty": 63755,
+        "item_empty": 0,
+        "value_error": 0
+      },
+      "kc_total_raw": 123,
+      "kc_kept": 116,
+      "min_kc_count": 30,
+      "min_seq_len": 5,
+      "max_seq_len": 100,
+      "split": "train",
+      "split_seed": 42
+    }
+  },
+  "results": {
+    "Mean": {
+      "auc_all": 0.5,
+      "acc_all": 0.6291371158392435,
+      "rmse_all": 0.48303656493362035,
+      "nll_all": 0.6594148626923402,
+      "n_all": 16920,
+      "auc_skip1st": 0.5,
+      "acc_skip1st": 0.6308761329305136,
+      "rmse_skip1st": 0.48257447752139654,
+      "nll_skip1st": 0.6585020743644873,
+      "n_skip1st": 16550,
+      "train_seconds": 0.0,
+      "n_params": null,
+      "auc_all_ci95": [
+        0.5,
+        0.5
+      ],
+      "per_student_auc_mean": 0.5,
+      "per_student_auc_std": 0.0
+    },
+    "KC-Mean": {
+      "auc_all": 0.62060842959772,
+      "acc_all": 0.6515366430260048,
+      "rmse_all": 0.4715594193946136,
+      "nll_all": 0.6359929594997702,
+      "n_all": 16920,
+      "auc_skip1st": 0.6202212891121763,
+      "acc_skip1st": 0.6533534743202417,
+      "rmse_skip1st": 0.47112842793207843,
+      "nll_skip1st": 0.6351739497329786,
+      "n_skip1st": 16550,
+      "train_seconds": 0.03,
+      "n_params": null,
+      "auc_all_ci95": [
+        0.6019,
+        0.6393
+      ],
+      "per_student_auc_mean": 0.5801,
+      "per_student_auc_std": 0.1446
+    },
+    "BKT": {
+      "auc_all": 0.7176981056516069,
+      "acc_all": 0.7004728132387706,
+      "rmse_all": 0.4471024134436084,
+      "nll_all": 0.5858292325062359,
+      "n_all": 16920,
+      "auc_skip1st": 0.7186525447286846,
+      "acc_skip1st": 0.702416918429003,
+      "rmse_skip1st": 0.44620999628666796,
+      "nll_skip1st": 0.584110852242713,
+      "n_skip1st": 16550,
+      "train_seconds": 293.25,
+      "n_params": null,
+      "auc_all_ci95": [
+        0.6947,
+        0.7341
+      ],
+      "per_student_auc_mean": 0.6001,
+      "per_student_auc_std": 0.1853
+    },
+    "DKT": {
+      "auc_all": 0.8091715056168,
+      "acc_all": 0.7554964539007092,
+      "rmse_all": 0.40514732342781645,
+      "nll_all": 0.4885459088545048,
+      "n_all": 16920,
+      "auc_skip1st": 0.8111814644500024,
+      "acc_skip1st": 0.7590332326283988,
+      "rmse_skip1st": 0.4035810347458924,
+      "nll_skip1st": 0.4854603430478337,
+      "n_skip1st": 16550,
+      "train_seconds": 83.93,
+      "n_params": 29233,
+      "auc_all_ci95": [
+        0.7917,
+        0.8255
+      ],
+      "per_student_auc_mean": 0.6944,
+      "per_student_auc_std": 0.1819
+    },
+    "SAKT": {
+      "auc_all": 0.7976806124492167,
+      "acc_all": 0.7427304964539007,
+      "rmse_all": 0.41279408699796466,
+      "nll_all": 0.5067562855860648,
+      "n_all": 16920,
+      "auc_skip1st": 0.7993988436203403,
+      "acc_skip1st": 0.7458006042296073,
+      "rmse_skip1st": 0.4114216770900644,
+      "nll_skip1st": 0.5040236151416848,
+      "n_skip1st": 16550,
+      "train_seconds": 263.42,
+      "n_params": 48577,
+      "auc_all_ci95": [
+        0.7779,
+        0.816
+      ],
+      "per_student_auc_mean": 0.673,
+      "per_student_auc_std": 0.1942
+    }
+  },
+  "models": {
+    "Mean": {
+      "kind": "baseline",
+      "desc": "全局均值预测（最弱基线）"
+    },
+    "KC-Mean": {
+      "kind": "baseline",
+      "desc": "逐知识点频率预测（严格下限）"
+    },
+    "BKT": {
+      "kind": "classic",
+      "desc": "贝叶斯知识追踪，四参数、可解释"
+    },
+    "DKT": {
+      "kind": "deep",
+      "desc": "深度知识追踪，LSTM 序列建模（主力）"
+    },
+    "SAKT": {
+      "kind": "deep",
+      "desc": "自注意力知识追踪（对照）"
+    }
+  }
+}

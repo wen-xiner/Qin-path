@@ -1,0 +1,25 @@
+# 知途 · 后端镜像
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+# 先装 CPU 版 torch（体积可控，不需要在容器里跑 GPU；要 GPU 请改用 nvidia 基础镜像）
+RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY ml/ ./ml/
+COPY backend/ ./backend/
+COPY conftest.py ./
+
+# 构建数据集（若已把 data/processed 挂进来可跳过）
+RUN python -m ml.data.build_dataset --profile cpu
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]

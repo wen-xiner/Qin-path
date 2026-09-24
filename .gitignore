@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+
+# 数据与模型产物（体积大，本地重建即可）
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# SQLite 数据库
+backend/*.db
+backend/*.db-journal
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# 截图脚本的浏览器 profile
+scripts/.edge-profile/
+
+# pytest
+.pytest_cache/
+
+# vite 临时文件
+frontend/vite.config.js.timestamp-*.mjs
